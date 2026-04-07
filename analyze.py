@@ -18,7 +18,7 @@ ENERGY_PERCENTILE_LOW = 5     # lower bound of significant energy
 ENERGY_PERCENTILE_HIGH = 95    # upper bound of significant energy
 
 def high_pass_filter(y, sr, cutoff=50):
-    """Apply a high-pass filter to remove low-frequency noise/rumble."""
+    """Apply a high-pass filter to remove low-frequency noise or rumble."""
     nyquist = sr / 2
     normal_cutoff = cutoff / nyquist
     b, a = butter(4, normal_cutoff, btype='high', analog=False)
@@ -192,7 +192,7 @@ def main():
         print(f"  {median_low:.0f} Hz to {median_high:.0f} Hz")
         print(f"\nTypical significant frequency range (mean across samples):")
         print(f"  {mean_low:.0f} Hz to {mean_high:.0f} Hz")
-        print(f"\nBased on the 5%-95% energy percentile method, church bell sounds")
+        print(f"\nBased on the 5%-95% energy percentile method, Church bell sounds")
         print(f"concentrate their audible energy approximately between {median_low:.0f} Hz and {median_high:.0f} Hz.")
     else:
         print("No valid frequency ranges found.")
